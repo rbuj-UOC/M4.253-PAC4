@@ -26,7 +26,10 @@
       "node": true
     },
     "rules": {
-      "indent": ["error", 2],
+      "indent": [
+        "error",
+        2
+      ],
       "prefer-const": "error",
       "semi": "error"
     }
@@ -45,6 +48,9 @@
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.3.0",
+    "eslint": "^8.56.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "http-server": "^14.1.1",
     "jest-watch-typeahead": "^2.2.2"
   }
