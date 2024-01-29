@@ -1,4 +1,12 @@
-import {addListeners, addToCart, createCartElement, emptyCart, item, queryDOM, updateCartTotal} from "./pec4.js";
+import {
+  addListeners,
+  addToCart,
+  createCartElement,
+  emptyCart,
+  item,
+  queryDOM,
+  updateCartTotal
+} from './pec4.js';
 
 const SAMPLE_INITIAL_HTML = `
  <div class="row">
@@ -120,100 +128,100 @@ function resetDOM() {
 }
 
 const checkAttrValue = (n, id, v) => {
-  if(!n.hasAttribute(id)) {
+  if (!n.hasAttribute(id)) {
     throw `Attribute ${id} not found`;
   }
   if (v !== n.attributes.getNamedItem(id).value) {
     throw `Attribute ${id} != ${v}`;
   }
-}
+};
 
 beforeEach(resetDOM);
 
-
 // Tests.
-describe("Ex1", () => {
-
-  it("should not fail when no DOM is present", () => {
+describe('Ex1', () => {
+  it('should not fail when no DOM is present', () => {
     try {
       queryDOM();
     } catch (e) {
       fail(e);
     }
   });
-  
-  it("should return an array", () => {
+
+  it('should return an array', () => {
     expect(queryDOM()).toBeInstanceOf(Array);
   });
 
-  it("should return 5 items", () => {
+  it('should return 5 items', () => {
     expect(queryDOM().length).toBe(5);
   });
 
-  it("should return the right node types", () => {
+  it('should return the right node types', () => {
     const result = queryDOM();
-    
+
     expect(result[0]).toBeInstanceOf(Element);
-    expect(result[0]).toHaveTextContent("12 €");
-    checkAttrValue(result[0],'id','totalPrice');
-    
+    expect(result[0]).toHaveTextContent('12 €');
+    checkAttrValue(result[0], 'id', 'totalPrice');
+
     expect(result[1]).toBeInstanceOf(NodeList);
     expect(result[1].length).toBe(2);
-    [...result[1].values()].forEach(node => {
+    [...result[1].values()].forEach((node) => {
       expect(node.nodeName.toLowerCase()).toBe('h2');
     });
-    
+
     expect(result[2]).toBeInstanceOf(NodeList);
     expect(result[2].length).toBe(3);
-    [...result[2].values()].forEach(node => {
-      expect(node.nodeName.toLowerCase()).toBe("div");
-      expect(node).toHaveClass("product");
+    [...result[2].values()].forEach((node) => {
+      expect(node.nodeName.toLowerCase()).toBe('div');
+      expect(node).toHaveClass('product');
     });
 
     expect(result[3]).toBeInstanceOf(NodeList);
     expect(result[3].length).toBe(3);
-    [...result[3].values()].forEach(node => {
-      expect(node.nodeName.toLowerCase()).toBe("p");
-      expect(node).toHaveClass("price");
+    [...result[3].values()].forEach((node) => {
+      expect(node.nodeName.toLowerCase()).toBe('p');
+      expect(node).toHaveClass('price');
     });
 
     expect(result[4]).toBeInstanceOf(Element);
-    expect(result[4]).toHaveTextContent("Add to cart");
+    expect(result[4]).toHaveTextContent('Add to cart');
   });
 });
 
-describe("Ex2", () => {
-  it("should return a DOM node",()=>{
+describe('Ex2', () => {
+  it('should return a DOM node', () => {
     const node = createCartElement(SAMPLE_SINGLE_APPLE_ITEM);
     expect(node).toBeInstanceOf(Node);
   });
-  it("should have the panel class",()=>{
+  it('should have the panel class', () => {
     const node = createCartElement(SAMPLE_SINGLE_APPLE_ITEM);
-    expect(node).toHaveClass("panel");
+    expect(node).toHaveClass('panel');
   });
-  it("should have the correct name",()=>{
-    // Actually, purple is not one of the predefined colors...
+  it('should have the correct name', () => {
     const node = createCartElement(SAMPLE_SINGLE_APPLE_ITEM);
-    expect(node.querySelector('h3')).toHaveTextContent("Apple");
+    expect(node.querySelector('h3')).toHaveTextContent('Apple');
   });
 
-  it("should have the correct price",()=>{
-    // Actually, purple is not one of the predefined colors...
+  it('should have the correct price', () => {
     const node = createCartElement(SAMPLE_TWO_APPLES_ITEM);
-    expect(node.querySelector('span')).toHaveTextContent("2 pieces for 20 €");
+    expect(node.querySelector('span')).toHaveTextContent('2 pieces for 20 €');
   });
 
-  it ("should has a correct HTML", () => {
+  it('should have the correct HTML', () => {
     let node = createCartElement(SAMPLE_TWO_APPLES_ITEM);
-    expect(node.outerHTML).toBe('<div class="panel"><h3>Apple</h3><span class="label">2 pieces for 20 €</span></div>');
+    expect(node.outerHTML).toBe(
+      '<div class="panel"><h3>Apple</h3><span class="label">2 pieces for 20 €</span></div>'
+    );
 
-    node = createCartElement(new item('Title',0,10));
-    expect(node.outerHTML).toBe('<div class="panel"><h3>Title</h3><span class="label">10 pieces for 0 €</span></div>');
+    node = createCartElement(new item('Title', 0, 10));
+    expect(node.outerHTML).toBe(
+      '<div class="panel"><h3>Title</h3><span class="label">10 pieces for 0 €</span></div>'
+    );
   });
 });
 
-describe("Ex3", () => {
-  it ("Should empty cart properly with a single item.", () => {
+describe('Ex3', () => {
+  it('Should empty cart properly with a single item.', () => {
     emptyCart();
     let nodeList = document.querySelectorAll('#cartItems .panel');
     expect(nodeList.length).toBe(0);
@@ -223,14 +231,14 @@ describe("Ex3", () => {
     expect(nodeList.length).toBe(0);
   });
 
-  it ("Should empty cart properly with a several items.", () => {
+  it('Should empty cart properly with a several items.', () => {
     document.body.innerHTML = SAMPLE_CART_WITH_ITEMS_HTML;
     emptyCart();
     let nodeList = document.querySelectorAll('#cartItems .panel');
     expect(nodeList.length).toBe(0);
   });
 
-  it ("Should empty cart properly if it is called several times.", () => {
+  it('Should empty cart properly if it is called several times.', () => {
     emptyCart();
     emptyCart();
     emptyCart();
@@ -239,14 +247,14 @@ describe("Ex3", () => {
   });
 });
 
-describe("Ex4", () => {
-  it ("The total price is updated properly with a single item.", () => {
+describe('Ex4', () => {
+  it('The total price is updated properly with a single item.', () => {
     updateCartTotal();
     const totalPrice = document.querySelector('#totalPrice');
     expect(totalPrice).toHaveTextContent('12 €');
   });
 
-  it ("The total price is updated properly with an empty cart.", () => {
+  it('The total price is updated properly with an empty cart.', () => {
     document.body.innerHTML = SAMPLE_EMPTY_CART_HTML;
     document.querySelector('#totalPrice').textContent = '10 €';
     updateCartTotal();
@@ -254,7 +262,7 @@ describe("Ex4", () => {
     expect(totalPrice).toHaveTextContent('0 €');
   });
 
-  it ("The total price is updated properly with several items.", () => {
+  it('The total price is updated properly with several items.', () => {
     document.body.innerHTML = SAMPLE_CART_WITH_ITEMS_HTML;
     document.querySelector('#totalPrice').textContent = '0 €';
     updateCartTotal();
@@ -262,7 +270,7 @@ describe("Ex4", () => {
     expect(totalPrice).toHaveTextContent('24 €');
   });
 
-  it ("The total is calculated of a idempotent way.", () => {
+  it('The total is calculated of a idempotent way.', () => {
     document.body.innerHTML = SAMPLE_CART_WITH_ITEMS_HTML;
     document.querySelector('#totalPrice').textContent = '0 €';
     updateCartTotal();
@@ -274,41 +282,41 @@ describe("Ex4", () => {
   });
 });
 
-describe("Ex5", () => {
-  it ("A single product is added properly to the cart.", () => {
+describe('Ex5', () => {
+  it('A single product is added properly to the cart.', () => {
     addToCart(SAMPLE_SINGLE_APPLE_ITEM);
     const nodeList = document.querySelectorAll('#cartItems .panel');
     expect(nodeList.length).toBe(2);
   });
 
-  it ("Several products are added properly to the cart if they are equals.", () => {
+  it('Several products are added properly to the cart if they are equals.', () => {
     addToCart(SAMPLE_SINGLE_ORANGE_ITEM);
     const nodeList = document.querySelectorAll('#cartItems .panel');
     expect(nodeList.length).toBe(1);
   });
 
-  it ("Several products are added properly to the cart if they are equals with different quantities.", () => {
+  it('Several products are added properly to the cart if they are equals with different quantities.', () => {
     addToCart(SAMPLE_SINGLE_APPLE_ITEM);
     addToCart(SAMPLE_TWO_APPLES_ITEM);
     const nodeList = document.querySelectorAll('#cartItems .panel');
     expect(nodeList.length).toBe(2);
   });
 
-  it ("Several products are added properly to the cart if they are different.", () => {
+  it('Several products are added properly to the cart if they are different.', () => {
     addToCart(SAMPLE_SINGLE_APPLE_ITEM);
     addToCart(SAMPLE_SINGLE_PEACH_ITEM);
     const nodeList = document.querySelectorAll('#cartItems .panel');
     expect(nodeList.length).toBe(3);
   });
 
-  it ("A single product is added properly to the cart on empty carts.", () => {
+  it('A single product is added properly to the cart on empty carts.', () => {
     document.body.innerHTML = SAMPLE_EMPTY_CART_HTML;
     addToCart(SAMPLE_SINGLE_APPLE_ITEM);
     const nodeList = document.querySelectorAll('#cartItems .panel');
     expect(nodeList.length).toBe(1);
   });
 
-  it ("Element are added with correct values.", () => {
+  it('Elements are added with correct values.', () => {
     document.body.innerHTML = SAMPLE_EMPTY_CART_HTML;
     addToCart(SAMPLE_TWO_APPLES_ITEM);
     addToCart(SAMPLE_TWO_APPLES_ITEM);
@@ -323,18 +331,16 @@ describe("Ex5", () => {
 /**
  * The functions emptyCart(), updateCart() and addToCart() should work as expected to pass this tests.
  */
-describe("Ex6", () => {
-
-  it("The clear button empty the cart", ()=>{
+describe('Ex6', () => {
+  it('The clear button empty the cart', () => {
     addListeners();
     const clearButton = document.getElementById('clear');
     clearButton.dispatchEvent(new Event('click'));
     const nodeList = document.querySelectorAll('#cartItems .panel');
     expect(nodeList.length).toBe(0);
-
   });
 
-  it("The update cart button calculate the total once", ()=>{
+  it('The update cart button calculates the total once', () => {
     document.body.innerHTML = SAMPLE_CART_WITH_ITEMS_HTML;
     document.querySelector('#totalPrice').textContent = '0 €';
 
@@ -347,7 +353,7 @@ describe("Ex6", () => {
     expect(totalPrice).toHaveTextContent('24 €');
   });
 
-  it("The update cart button calculate the total several times", ()=>{
+  it('The update cart button calculates the total several times', () => {
     document.body.innerHTML = SAMPLE_CART_WITH_ITEMS_HTML;
     document.querySelector('#totalPrice').textContent = '0 €';
 
@@ -363,21 +369,24 @@ describe("Ex6", () => {
     expect(totalPrice).toHaveTextContent('24 €');
   });
 
-
-  it("The add to cart button works once", ()=>{
+  it('The add to cart button works once', () => {
     addListeners();
 
-    const addToCartButton = document.querySelector(".products [data-name='Apple'] button");
+    const addToCartButton = document.querySelector(
+      ".products [data-name='Apple'] button"
+    );
     addToCartButton.dispatchEvent(new Event('click'));
 
     const nodeList = document.querySelectorAll('#cartItems .panel');
     expect(nodeList.length).toBe(2);
   });
 
-  it("The add to cart button works twice", ()=>{
+  it('The add to cart button works twice', () => {
     addListeners();
 
-    const addToCartButton = document.querySelector(".products [data-name='Apple'] button");
+    const addToCartButton = document.querySelector(
+      ".products [data-name='Apple'] button"
+    );
     addToCartButton.dispatchEvent(new Event('click'));
     addToCartButton.dispatchEvent(new Event('click'));
 
@@ -385,13 +394,17 @@ describe("Ex6", () => {
     expect(nodeList.length).toBe(2);
   });
 
-  it("The add to cart button works with different products", ()=>{
+  it('The add to cart button works with different products', () => {
     addListeners();
 
-    const appleAddToCartButton = document.querySelector(".products [data-name='Apple'] button");
+    const appleAddToCartButton = document.querySelector(
+      ".products [data-name='Apple'] button"
+    );
     appleAddToCartButton.dispatchEvent(new Event('click'));
 
-    const peachAddToCartButton = document.querySelector(".products [data-name='Peach'] button");
+    const peachAddToCartButton = document.querySelector(
+      ".products [data-name='Peach'] button"
+    );
     peachAddToCartButton.dispatchEvent(new Event('click'));
 
     const nodeList = document.querySelectorAll('#cartItems .panel');
