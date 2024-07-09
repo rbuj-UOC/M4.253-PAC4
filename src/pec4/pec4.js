@@ -8,13 +8,7 @@ export class item {
 
 // Exercise 1. (2p)
 export function queryDOM() {
-  return [
-    document.getElementById('totalPrice'),
-    document.querySelectorAll('h2'),
-    document.querySelectorAll('.product'),
-    document.querySelectorAll('p.price'),
-    document.querySelector(".products [data-name='Peach'] button")
-  ];
+  return [document.getElementById('totalPrice'), document.querySelectorAll('h2'), document.querySelectorAll('.product'), document.querySelectorAll('p.price'), document.querySelector(".products [data-name='Peach'] button")];
 }
 
 // Exercise 2. (2p)
@@ -25,13 +19,7 @@ export function createCartElement(item) {
   newDiv.className = 'panel';
   newHeader.appendChild(document.createTextNode(item.name));
   newSpan.className = 'label';
-  newSpan.appendChild(
-    document.createTextNode(
-      item.units === 1
-        ? `${item.units} piece for ${item.price} €`
-        : `${item.units} pieces for ${item.price} €`
-    )
-  );
+  newSpan.appendChild(document.createTextNode(item.units === 1 ? `${item.units} piece for ${item.price} €` : `${item.units} pieces for ${item.price} €`));
   newDiv.appendChild(newHeader);
   newDiv.appendChild(newSpan);
   return newDiv;
@@ -39,9 +27,7 @@ export function createCartElement(item) {
 
 // Exercise 3 (1p)
 export function emptyCart() {
-  document
-    .querySelectorAll('#cartItems div.panel')
-    .forEach((item) => item.remove());
+  document.querySelectorAll('#cartItems div.panel').forEach((item) => item.remove());
 }
 
 // Exercise 4 (1p)
@@ -67,10 +53,7 @@ export function addToCart(itemAdded) {
       if (number.length === 2) {
         const units = itemAdded.units + Number.parseInt(number[0]);
         const price = itemAdded.price + Number.parseInt(number[1]);
-        span.textContent =
-          units === 1
-            ? `${units} piece for ${price} €`
-            : `${units} pieces for ${price} €`;
+        span.textContent = units === 1 ? `${units} piece for ${price} €` : `${units} pieces for ${price} €`;
       }
       exist = true;
     }
@@ -88,16 +71,7 @@ export function addListeners() {
     product.querySelector('button').addEventListener('click', () => {
       const units = Number.parseInt(product.querySelector('input').value);
       if (units > 0) {
-        addToCart(
-          new item(
-            product.querySelector('h3').textContent,
-            units *
-              Number.parseInt(
-                product.querySelector('p').textContent.match(/\d+/g)[0]
-              ),
-            units
-          )
-        );
+        addToCart(new item(product.querySelector('h3').textContent, units * Number.parseInt(product.querySelector('p').textContent.match(/\d+/g)[0]), units));
       }
     });
   }
