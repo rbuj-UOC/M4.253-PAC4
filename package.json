@@ -15,25 +15,6 @@
     "eject": "react-scripts eject",
     "serve": "http-server"
   },
-  "eslintConfig": {
-    "extends": [
-      "eslint:recommended",
-      "react-app",
-      "react-app/jest"
-    ],
-    "env": {
-      "browser": true,
-      "node": true
-    },
-    "rules": {
-      "indent": [
-        "error",
-        2
-      ],
-      "prefer-const": "error",
-      "semi": "error"
-    }
-  },
   "browserslist": {
     "production": [
       ">0.2%",
