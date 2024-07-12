@@ -82,7 +82,7 @@ Aquests són els elements que et facilitem per realitzar aquesta PAC (no cal mod
 
 La figura següent mostra l'aspecte que té la pàgina web que et proporcionem i sobre la qual es desenvoluparà aquesta PAC:
 
-![Website](src/web/img/website.png)
+![Website](img/website.png)
 
 Com podeu observar, la pàgina web implementa una cistella de la compra bàsica. A la part esquerra es mostra el contingut de la cistella mentre que a la part dreta es mostren tres productes diferents. Per a cada producte se n'indica el nom i el preu i, a la part inferior, es pot indicar el nombre d'elements a afegir a la cistella i el botó per fer-ho.
 

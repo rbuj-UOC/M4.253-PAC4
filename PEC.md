@@ -82,7 +82,7 @@ Estos son los elementos que te facilitamos para realizar esta PEC (no es necesar
 
 La siguiente figura muestra el aspecto que tiene la página web que te proporcionamos y sobre la que se desarrollará esta PEC:
 
-![Website](src/web/img/website.png)
+![Website](img/website.png)
 
 Como puedes observar, la página web implementa un carrito de la compra básico. En la parte izquierda se muestra el contenido del carrito mientras que en la parte derecha se muestran tres productos diferentes. Para cada producto se indica su nombre y su precio y, en la parte inferior, se puede indicar el número de elementos a añadir al carrito y el botón para hacerlo.
 
