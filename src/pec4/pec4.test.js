@@ -1,12 +1,4 @@
-import {
-  addListeners,
-  addToCart,
-  createCartElement,
-  emptyCart,
-  item,
-  queryDOM,
-  updateCartTotal
-} from './pec4.js';
+import { addListeners, addToCart, createCartElement, emptyCart, item, queryDOM, updateCartTotal } from './pec4.js';
 
 const SAMPLE_INITIAL_HTML = `
  <div class="row">
@@ -209,14 +201,10 @@ describe('Ex2', () => {
 
   it('should have the correct HTML', () => {
     let node = createCartElement(SAMPLE_TWO_APPLES_ITEM);
-    expect(node.outerHTML).toBe(
-      '<div class="panel"><h3>Apple</h3><span class="label">2 pieces for 20 €</span></div>'
-    );
+    expect(node.outerHTML).toBe('<div class="panel"><h3>Apple</h3><span class="label">2 pieces for 20 €</span></div>');
 
     node = createCartElement(new item('Title', 0, 10));
-    expect(node.outerHTML).toBe(
-      '<div class="panel"><h3>Title</h3><span class="label">10 pieces for 0 €</span></div>'
-    );
+    expect(node.outerHTML).toBe('<div class="panel"><h3>Title</h3><span class="label">10 pieces for 0 €</span></div>');
   });
 });
 
@@ -234,7 +222,7 @@ describe('Ex3', () => {
   it('Should empty cart properly with a several items.', () => {
     document.body.innerHTML = SAMPLE_CART_WITH_ITEMS_HTML;
     emptyCart();
-    let nodeList = document.querySelectorAll('#cartItems .panel');
+    const nodeList = document.querySelectorAll('#cartItems .panel');
     expect(nodeList.length).toBe(0);
   });
 
@@ -242,7 +230,7 @@ describe('Ex3', () => {
     emptyCart();
     emptyCart();
     emptyCart();
-    let nodeList = document.querySelectorAll('#cartItems .panel');
+    const nodeList = document.querySelectorAll('#cartItems .panel');
     expect(nodeList.length).toBe(0);
   });
 });
@@ -372,9 +360,7 @@ describe('Ex6', () => {
   it('The add to cart button works once', () => {
     addListeners();
 
-    const addToCartButton = document.querySelector(
-      ".products [data-name='Apple'] button"
-    );
+    const addToCartButton = document.querySelector(".products [data-name='Apple'] button");
     addToCartButton.dispatchEvent(new Event('click'));
 
     const nodeList = document.querySelectorAll('#cartItems .panel');
@@ -384,9 +370,7 @@ describe('Ex6', () => {
   it('The add to cart button works twice', () => {
     addListeners();
 
-    const addToCartButton = document.querySelector(
-      ".products [data-name='Apple'] button"
-    );
+    const addToCartButton = document.querySelector(".products [data-name='Apple'] button");
     addToCartButton.dispatchEvent(new Event('click'));
     addToCartButton.dispatchEvent(new Event('click'));
 
@@ -397,14 +381,10 @@ describe('Ex6', () => {
   it('The add to cart button works with different products', () => {
     addListeners();
 
-    const appleAddToCartButton = document.querySelector(
-      ".products [data-name='Apple'] button"
-    );
+    const appleAddToCartButton = document.querySelector(".products [data-name='Apple'] button");
     appleAddToCartButton.dispatchEvent(new Event('click'));
 
-    const peachAddToCartButton = document.querySelector(
-      ".products [data-name='Peach'] button"
-    );
+    const peachAddToCartButton = document.querySelector(".products [data-name='Peach'] button");
     peachAddToCartButton.dispatchEvent(new Event('click'));
 
     const nodeList = document.querySelectorAll('#cartItems .panel');
