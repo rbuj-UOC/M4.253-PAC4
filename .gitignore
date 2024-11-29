@@ -1,5 +1,4 @@
 build/
 node_modules/
-package-lock.json
 pac4_rbuj.zip
 .DS_Store
