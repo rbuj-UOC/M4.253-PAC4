@@ -2,7 +2,7 @@
   "name": "pac-4",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://rbuj-uoc.github.io/M4.253-PAC4/",
+  "homepage": ".",
   "type": "module",
   "dependencies": {
     "@testing-library/user-event": "^14.6.1",
