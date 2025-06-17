@@ -1,19 +1,17 @@
 {
-  "name": "pec-0-sol",
+  "name": "pac-4",
   "version": "0.1.0",
   "private": true,
   "type": "module",
   "dependencies": {
     "@testing-library/user-event": "^14.6.0",
-    "react-scripts": "5.0.1",
-    "serve": "^14.2.4"
+    "react-scripts": "5.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --testTimeout=500",
-    "eject": "react-scripts eject",
-    "serve": "http-server"
+    "eject": "react-scripts eject"
   },
   "browserslist": {
     "production": [
@@ -37,7 +35,6 @@
     "eslint-plugin-react": "^7.37.4",
     "eslint-plugin-react-hooks": "^5.1.0",
     "globals": "^15.14.0",
-    "http-server": "^14.1.1",
     "jest-watch-typeahead": "^2.2.2",
     "prettier": "^3.4.2"
   }

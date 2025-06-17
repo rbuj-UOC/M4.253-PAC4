@@ -76,13 +76,13 @@ Per facilitar-te la feina, no hauràs de crear des de zero el motor de l'aplicac
 
 Aquests són els elements que et facilitem per realitzar aquesta PAC (no cal modificar-los en cap cas):
 
-- `src/web/index.html` conté una instantània del DOM que farà servir l'aplicació. Et servirà com a guia per saber com estructurar els diferents elements i com es relacionen entre ells. El fitxer es pot obrir directament amb el navegador encara que perquè funcioni el javascript necessitaràs córrer el servidor http tal com indiquem a la secció _corrent l'aplicació_.
-- `src/web/style.css` és el full d'estils que dóna format als documents HTML de l'aplicació.
-- `src/web/index.js` és el mòdul JavaScript que executarà l'aplicació.
+- `public/index.html` conté una instantània del DOM que farà servir l'aplicació. Et servirà com a guia per saber com estructurar els diferents elements i com es relacionen entre ells. El fitxer es pot obrir directament amb el navegador encara que perquè funcioni el javascript necessitaràs córrer el servidor http tal com indiquem a la secció _corrent l'aplicació_.
+- `public/css/style.css` és el full d'estils que dóna format als documents HTML de l'aplicació.
+- `public/index.js` és el mòdul JavaScript que executarà l'aplicació.
 
 La figura següent mostra l'aspecte que té la pàgina web que et proporcionem i sobre la qual es desenvoluparà aquesta PAC:
 
-![Website](img/website.png)
+![Website](img/website.avif)
 
 Com podeu observar, la pàgina web implementa una cistella de la compra bàsica. A la part esquerra es mostra el contingut de la cistella mentre que a la part dreta es mostren tres productes diferents. Per a cada producte se n'indica el nom i el preu i, a la part inferior, es pot indicar el nombre d'elements a afegir a la cistella i el botó per fer-ho.
 
@@ -120,20 +120,26 @@ Un cop preparat l'entorn (revisa la secció anterior), podràs córrer l'aplicac
 Per córrer l'aplicació hauràs d'executar la següent ordre des d'un terminal situat a l'arrel del projecte:
 
 ```
-npm run serve src/
+npm run start
 ```
 
-L'ordre anterior llança un servidor http que serveix els fitxers estàtics de la carpeta `src` del teu repositori, que és precisament on es troben els fitxers de l'aplicació web (situats a `src/web`) i el fitxer amb les solucions als exercicis (situat a `src/pec4/pec4.js`).
+L'ordre anterior llança un servidor http que serveix els fitxers estàtics de la carpeta `public` del teu repositori i el fitxer amb les solucions als exercicis (situat a `src/pec4/pec4.js`).
 
-Un cop executada l'ordre, veuràs la informació necessària per accedir a l'aplicació web des del teu navegador web. En particular, fixa't en les indicacions finals, la secció que comença amb el text `Available on:`. En aquesta secció s'indica l'URL on has d'accedir per veure l'aplicació web. A l'exemple següent, la URL és `http://127.0.0.1:8080`:`
+Un cop executada l'ordre, veuràs la informació necessària per accedir a l'aplicació web des del teu navegador web. En particular, fixa't en les indicacions finals, la secció que comença amb el text `Available on:`. En aquesta secció s'indica l'URL on has d'accedir per veure l'aplicació web. A l'exemple següent, la URL és `http://localhost:3000`:`
 
 ```
-Available on:
-   http://127.0.0.1:8080
-Hit CTRL-C to stop the server
-```
+Compiled successfully!
 
-Recorda que per accedir a l'aplicació web has d'afegir la ruta `web` a la URL, ja que l'ordre `serve` serveix els fitxers de la carpeta `src` i l'aplicació web és a la carpeta `src/web`. Per tant, la URL completa a què has d'accedir és `http://127.0.0.1:8080/web`. Prova d'accedir a aquesta URL i prova l'aplicació web.
+You can now view pac-4 in the browser.
+
+  Local:            http://localhost:3000
+  On Your Network:  http://???:3000
+
+Note that the development build is not optimized.
+To create a production build, use npm run build.
+
+webpack compiled successfully
+```
 
 Per aturar l'execució del servidor http només cal que premis les tecles `Control + C`.
 
