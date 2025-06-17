@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "dependencies": {
-    "@testing-library/user-event": "^14.6.0",
+    "@testing-library/user-event": "^14.6.1",
     "react-scripts": "5.0.1"
   },
   "scripts": {
@@ -26,16 +26,16 @@
     ]
   },
   "devDependencies": {
-    "@awmottaz/prettier-plugin-void-html": "^1.7.0",
+    "@awmottaz/prettier-plugin-void-html": "^1.8.0",
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "@eslint/js": "^9.18.0",
+    "@eslint/js": "^9.29.0",
     "@testing-library/jest-dom": "^6.6.3",
-    "eslint": "^9.18.0",
-    "eslint-config-prettier": "^10.0.1",
-    "eslint-plugin-react": "^7.37.4",
-    "eslint-plugin-react-hooks": "^5.1.0",
-    "globals": "^15.14.0",
+    "eslint": "^9.29.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "globals": "^16.2.0",
     "jest-watch-typeahead": "^2.2.2",
-    "prettier": "^3.4.2"
+    "prettier": "^3.5.3"
   }
 }
