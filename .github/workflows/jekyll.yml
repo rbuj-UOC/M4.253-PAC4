@@ -1,4 +1,4 @@
-name: Deploy Parcel with GitHub Pages
+name: CI/CD with Jekyll
 
 on:
   push:
@@ -34,6 +34,7 @@ jobs:
           node-version: 20
       - run: npm ci
       - run: npm run build
+      - run: npx react-scripts test --all --watchAll false
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
