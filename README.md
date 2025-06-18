@@ -1,3 +1,5 @@
+[![CI/CD with Jekyll](https://github.com/rbuj-UOC/M4.253-PAC4/actions/workflows/jekyll.yml/badge.svg)](https://github.com/rbuj-UOC/M4.253-PAC4/actions/workflows/jekyll.yml)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
