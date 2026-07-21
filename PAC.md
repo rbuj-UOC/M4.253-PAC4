@@ -94,13 +94,13 @@ Per veure la pàgina web del cas d'estudi en funcionament, seguiu els passos que
 
 Un cop fet **clone** del repositori, has d'instal·lar les dependències del projecte.
 
-```
+```shell
 npm install
 ```
 
 A continuació, per llançar els tests has d'executar la següent ordre:
 
-```
+```shell
 npm t
 ```
 
@@ -119,7 +119,7 @@ Un cop preparat l'entorn (revisa la secció anterior), podràs córrer l'aplicac
 
 Per córrer l'aplicació hauràs d'executar la següent ordre des d'un terminal situat a l'arrel del projecte:
 
-```
+```shell
 npm run start
 ```
 
@@ -127,7 +127,7 @@ L'ordre anterior llança un servidor http que serveix els fitxers estàtics de l
 
 Un cop executada l'ordre, veuràs la informació necessària per accedir a l'aplicació web des del teu navegador web. En particular, fixa't en les indicacions finals, la secció que comença amb el text `Available on:`. En aquesta secció s'indica l'URL on has d'accedir per veure l'aplicació web. A l'exemple següent, la URL és `http://localhost:3000`:`
 
-```
+```text
 Compiled successfully!
 
 You can now view pac-4 in the browser.
