@@ -161,7 +161,8 @@ Es requereix que la funció `queryDOM` retorni un array amb els valors següents
 - A l'índex `3`, l'objecte `NodeList` corresponent a tots els nodes del DOM el `tag` del qual sigui `p` i una de les seves classes CSS sigui `price`.
 - A l'índex `4`, l'objecte `Element` corresponent al node del DOM de l'element `button`, de l'element amb `data-name` igual a `Peach` dins de l'element amb classe `products`.
 
-> Nota: El tipus requerit per a cada element us pot donar una pista sobre el mètode més apropiat per efectuar la consulta.
+> [!NOTE]
+> El tipus requerit per a cada element us pot donar una pista sobre el mètode més apropiat per efectuar la consulta.
 
 ---
 
@@ -194,7 +195,8 @@ i retorni un element del DOM corresponent al codi HTML següent:
 
 Essent `{name}`, `{price}` i `{units}` els valors emmagatzemats a les propietats del mateix nom del paràmetre `item`.
 
-> Nota: Fixa't que la classe `item` ja està definida dins del fitxer `pec4.js`.
+> [!NOTE]
+> Fixa't que la classe `item` ja està definida dins del fitxer `pec4.js`.
 
 ### Exercici 3 (1 pts): Eliminació d'elements del DOM
 
@@ -216,7 +218,8 @@ function updateCartTotal() {...}
 
 Es requereix la seva implementació, de manera que en invocar-la s'actualitzi el valor de l'element del DOM amb identificador `totalPrice`, sent el seu valor el resultat de la suma dels preus dels productes de classe llistats dins de l'element del DOM amb identificador `cartItems`.
 
-> Nota: El preu dels elements de la cistella està dins d'un _string_ que hauràs de tractar prèviament.
+> [!NOTE]
+> El preu dels elements de la cistella està dins d'un _string_ que hauràs de tractar prèviament.
 
 ### Exercici 5 (2 pts): Addició d'elements al DOM
 
@@ -234,7 +237,8 @@ Cal fer-ne la implementació. La funció haurà de comptar amb les característi
 - Si l'objecte no existeix, cal afegir-lo a la cistella. Per construir l'element del DOM s'haurà de fer servir la funció `createCartElement(item)` definida a l'exercici 2. Aquest element nou haurà d'incorporar-se al llistat d'elements, identificat per `cartItems`.
 - Els missatges relacionats amb el nombre d'elements de la cistella han de continuar sent vàlids. És a dir, si el preu de l'element és X€, i hi ha N unitats, el preu a mostrar serà N\*X.
 
-> Nota: Fixa't bé en el fitxer `index.html` per veure com s'estructura la cistella de la compra.
+> [!NOTE]
+> Fixa't bé en el fitxer `index.html` per veure com s'estructura la cistella de la compra.
 
 ### Exercici 6 (2 pts): Event Listeners
 
