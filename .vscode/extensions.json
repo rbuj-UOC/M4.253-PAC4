@@ -2,6 +2,7 @@
   "recommendations": [
     "formulahendry.auto-rename-tag",
     "HTMLHint.vscode-htmlhint",
+    "DavidAnson.vscode-markdownlint",
     "dbaeumer.vscode-eslint",
     "xabikos.JavaScriptSnippets",
     "esbenp.prettier-vscode",
