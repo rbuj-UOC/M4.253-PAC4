@@ -1,5 +1,5 @@
 {
-  "cSpell.language": "en,ca,es",
+  "cSpell.language": "en,ca",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "emmet.triggerExpansionOnTab": true,
   "jest.runMode": {
